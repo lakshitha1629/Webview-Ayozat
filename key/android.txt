@@ -1,0 +1,20 @@
+Here’s how to generate and register a new upload key:
+
+Follow the instructions in the Android Studio Help Center to generate a new key. It must be different from any previous keys. Alternatively, you can use the following command line to generate a new key:
+keytool -genkeypair -alias upload -keyalg RSA -keysize 2048 -validity 9125 -keystore keystore.jks
+
+This key must be a 2048 bit RSA key and have 25-year validity.
+Export the certificate for that key to PEM format:
+keytool -export -rfc -alias upload -file upload_certificate.pem -keystore keystore.jks 
+
+Once you have generated a pem file please follow the steps below: 
+Go to Setup > App integrity > App Signing
+Request Upload key reset
+Give a reason on why you are requesting a key reset
+Enters PEM file
+Clicks “request”
+
+Ayozat@20229
+Alex Perera
+Ayozat
+Building 3 Chiswick Park, 566 Chiswick High Road, Chiswick, W4 5YA
